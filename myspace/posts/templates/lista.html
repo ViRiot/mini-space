@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<style>
+	#ls, h1{
+		margin-left: 38px;
+		color: white;
+	}
+
+	#post{
+		margin-left: 40px;
+		margin-right: 120px;
+		background-color: #FFFFFF;
+		border-bottom: solid 2px;
+		border-color: #8E8E8E;
+		margin-top: 0px;
+		margin-bottom: 0px;
+
+	}
+ a:hover{
+			color:#22B7A1;
+
+		}
+	
+
+	p{
+		font-family: sans-serif;
+		margin-left: 25px;
+		margin-right: 10px;
+	}
+
+	h2{
+		margin-left: 10px;
+		
+	}
+
+	
+#bebe{
+	color:##5FC2F6;
+	font-size: 20px;
+	}
+	
+#beb{
+	color:green;
+}
+
+
+</style>
+{%if request.user.is_authenticated%}
+			{%if categoria%}
+				<h2>Posts que coinciden con la categoria {{categoria.nombre}}</h2>
+			{%else%}	
+<h1>Bienvenido(a) {{request.user.first_name}} {{request.user.last_name}}</h1>
+			{%endif%}
+	<h2 id="ls">Enlistamos todos los post</h2>
+	{%if request.user.is_authenticated%}
+		{%for post in posts%}
+			<div id="post">
+			<a href="{{post.get_absolute_url}}">
+			<h2>{{post.titulo}}</h2>
+			</a>
+			<p>{{post.cuerpo}}</p>
+			<div id="fecha">{{post.fecha}} </div>
+			</div>
+			<ul id="cat">
+			{%for cat in post.categorias.all%}
+				<a id="caca" href="{%url 'categoria' cat.nombre%}">
+				<li id="bebe">{{cat.nombre}}</li></a>
+				{%empty%}
+				<li id="beb">No hay categorias</li>
+		    {%endfor%}
+		</ul>
+		{%empty%}
+			<h1>Lo sentimos, no hay post nuevos</h1>
+		{%endfor%}
+{%else%}
+<h2 id="ls">Lo sentimos, no has iniciado sesión</h2>
+<a href="{%url 'login'%}"><input id="botin" type="submit" value="Iniciar sesión"></a>
+<p><a href="{%url 'alta'%}">Crear nueva cuenta</a></p>
+	{%endif%}
+{%endif%}
+{%endblock content%}

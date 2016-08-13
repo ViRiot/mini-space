@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{%block content%}
+<style>
+	#perfil{
+		margin-left: 40px;
+		margin-right: 120px;
+		background-color: #FFFFFF;
+		border-bottom: solid 2px;
+		border-color: #8E8E8E;
+		margin-top: 0px;
+		margin-bottom: 0px;
+		font-family: sans-serif;
+	}
+	
+	h1{
+		margin-left: 25px;
+		margin-bottom: 50px;
+	}
+
+	p{
+		margin-left: 15px;
+		margin-right: 20px;
+	}
+
+	#escala{
+	margin-left: 40px;
+		margin-right: 120px;
+		color: white;
+		border-bottom: solid 2px;
+		border-color: #8E8E8E;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	#botin{
+			margin-left: 340px;
+	}
+	h3, h2{
+		margin-left: 15px;
+	}
+
+</style>
+
+<div id="perfil">
+{%if request.user.is_authenticated%}
+<h1>Bienvenido(a) {{request.user.first_name}} {{request.user.last_name}}</h1>
+<h2>Acerca de mí:</h2>
+<p>El	primer	lugar	que	visité	cuando	empecé	a	escribir	este	libro	fue	Silicon	Valley,
+California,	el	indiscutido	centro	de	la	innovación	a	nivel	mundial	y	la	sede	de	Google,	Apple,	Facebook,
+eBay,	Intel	y	miles	de	otras	compañías	de	alta	tecnología.	Quería	averiguar	cuál	era	el	secreto	del	éxito
+de	Silicon	Valley	y	qué	pueden	hacer	otros	países	para	emularlo.	Tenía	mil	preguntas	en	la	cabeza.
+¿A	 qué	 se	 debe	 la	 impresionante	 concentración	 de	 empresas	 innovadoras	 globales	 en	 esa	 área	 del
+norte	 de	 California,	 en	 los	 alrededores	 de	 San	 Francisco?	 ¿Es	 que	 el	 gobierno	 de	 Estados	 Unidos	 ha
+designado	 esa	 área	 como	 polo	 de	 desarrollo	 tecnológico	 y	 proporciona	 a	 las	 empresas	 de	 tecnología
+enormes	 facilidades	 para	 que	 se	 establezcan	 allí?	 ¿Es	 que	 el	 estado	 de	 California	 les	 da	 exenciones
+fiscales?	¿O	las	compañías	tecnológicas	llegan	a	Silicon	Valley	atraídas	por	los	contratos	de	la	industria
+de	 defensa,	 o	 por	 la	 cercanía	 de	 la	 Universidad	 de	 Stanford,	 una	 de	 las	 mejores	 del	 mundo	 en
+investigación	tecnológica	y	científica?</p>
+	<h3>Informacion de contacto</h3>
+	<p>Correo electrónico: {{request.user.email}}</p>
+{%else%}
+<h2>Esta vista no esta disponible hasta de inicies sesión</h2>
+{%endif%}
+</div>
+
+{%endblock content%}

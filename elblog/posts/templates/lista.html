@@ -1,0 +1,24 @@
+{%extends 'base.html' %}
+{%block content %}
+
+	<form action="" method="POST">
+			<p>Nombre: {{usuario.first_name}}</p>
+			<p>Mensaje: </p>
+			<p><input type="submit" value="Enviar"></p>
+		</form>
+	<h2 id="parr">Twixter line</h2>
+	<ul>
+		{%for post in posts%}
+			<h1>{{usuario.first_name}}</h1>
+			<a href="{{post.get_absolute_url}}">
+			<div id="poke">
+			<h1>{{post.titulo}}</h1>
+			</a>
+			<p>{{post.cuerpo}}</p></a>
+			<p id="fecha">{{post.fecha}}</span>
+			</div>
+		{%empty%}
+			<h1>No hay ningun pokemon</h1>
+		{%endfor%}
+	</ul>
+{%endblock content%}

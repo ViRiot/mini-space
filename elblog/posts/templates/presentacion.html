@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tweexter</title>
+	<meta charset= UTF-8>
+	<style type="text/css">
+
+	body{
+		margin:0;
+		padding:0;
+		font-family: sans-serif;
+	}
+	#contenedor{
+		background: green;
+		vertical-align: left;
+		margin-bottom: 25px;
+		margin-right: 45%;
+		box-shadow: 0px 10px 15px rgba(0,0,0,0.7);
+		padding: 1px;
+	}
+
+	#chiquito{
+		background-color: orange;
+		width: 98%;
+		margin: auto;
+	}
+
+	a{
+		text-decoration: none;
+		color: white;
+		
+	}
+
+	#poke{
+		border-bottom: solid 2px;
+	}
+
+	h1{
+		color:white;
+		margin-left: 20px;
+		margin-bottom: 0px;	
+	}
+
+	#menu li{
+		display: inline;
+	background-color: green;
+	margin-left: 25px;
+	}
+
+	p{
+		margin-top: 3px;
+		margin-left: 35px;
+	}
+
+	#line{
+		background-color: green;
+		color: white;
+		margin:0;
+		padding:0;
+		box-shadow: 0px 10px 15px rgba(0,0,0,0.7);
+	}
+	footer{
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	</style>
+</head>
+<body>
+	<h1 id="line"> <a href="http://localhost:8000/blog/">Twixter</a></h1>	
+	<div id="contenedor">
+		<ul id="menu">
+	<li><a href="http://localhost:8000/blog/">Inicio</a></li>
+	<li><a href="http://localhost:8000/blog/soy-charmander-jose/">¡Checa nuestro último Tweet!</a></li>
+		</ul>
+	  <div id="chiquito">
+		<header>
+			<h1>Mi perfil</h1>
+		</header>
+	{%if request.user.is_authenticated%}
+			<h1>Hola, mi nombre es: {{usuario.first_name}} </h1>
+		}
+		<p>Como vemos esta función tan sencilla no hace otra cosa que sumar los
+			valores pasados como parámetro y devolver el resultado como valor de
+			retorno.</br>
+			También podríamos pasar varios valores que retornar a return.
+			def f(x, y):</br>
+			return x * 2, y * 2 </br>
+a, b = f(1, 2)</br>
+Sin embargo esto no quiere decir que las funciones Python puedan devolver varios valores, lo que ocurre en realidad es que Python crea una
+tupla al vuelo cuyos elementos son los valores a retornar, y esta única
+variable es la que se devuelve.</p></br>
+
+		<h1>Deja un comentario</h1>
+		<form action="" method="POST">
+			<p>Nombre:</p>
+			<p>Mensaje: </p>
+			<p><input type="submit" value="Enviar"></p>
+		</form>
+	{%else%}
+		<h1>Lo sentimos, no has iniciado sesión</h1>
+			<p>Click para <a href="http://localhost:8000/admin/login/?next=/admin/">iniciar sesion</a></p>
+	{%endif%}
+		<footer>
+			(c) Propiedad de Twíxter y sus secuaces
+		</footer>
+	  </div>	
+	</div>
+</body>
+</html>

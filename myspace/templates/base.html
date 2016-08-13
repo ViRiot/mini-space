@@ -1,0 +1,104 @@
+<html>
+<head>
+	<title>MySpace</title>
+	<style>
+		html, body{
+			font-family: Loma;
+			margin: 0;
+			background-color: #0B0923;
+
+		}
+		.nav{
+			margin:0;
+			width: 100%;
+			height: 80px;
+			background: black;
+			text-align: right;
+			padding-top: 25px;
+		}
+		h2{
+			color:black;
+			font-family: Nimbus Sans L;
+		}
+		.style a:hover{
+			color:black;
+
+		}
+
+		.pie{
+			text-align: center;
+			background-color: black;
+			color: white;
+			margin-bottom: 5px;
+			margin-top: auto;
+		}
+		
+		a{	
+			
+			color: white;
+			text-decoration: none;
+			margin-right: 10px;
+			
+		}
+
+		#title {
+			font-family: Ubuntu;
+			color: white;
+			text-align: left;
+			margin-left: 10px
+		}
+
+		.style{
+			width: 100%;
+			height: 40px;
+			background: #4C4C4C;
+			text-align: right;
+			color: white;
+
+		}
+		#fecha{
+		text-align:right;
+		color:#077EFB;
+		margin-right: 20px;
+	}
+	#botin{
+			margin-left: 100px;
+			background-color:#EED92D;
+			 -webkit-border-radius:4px;
+             -moz-border-radius:4px;
+              border-radius:4px;
+              background:-webkit-linear-gradient(top, #F8E027, withe); /* Chrome 10+ */
+background: -moz-linear-gradient(top, #F8E027, white); /* Firefox 3.6+ */
+background: -ms-linear-gradient(top, #F8E027, white); /* IE10 */
+background: linear-gradient(top, #F8E027, white);
+	}
+
+	</style>
+</head>
+<body>
+	<nav class="nav">
+		<h1 id="title"><a href="{%url 'lista'%}">Welcome to MySpace</a></h1>
+	</nav>
+		<nav class="style">
+		<a id="list" href="{%url 'lista'%}">Publicaciones</a>
+		{%if request.user.is_authenticated%}
+		<a href="{%url 'nuevo'%}">Nueva Publicación</a>
+		<a href="{%url 'perfil'%}">Mi perfil</a>
+		<a href="{%url 'logout'%}">Cerrar Sesión</a>
+		{%else%}
+		<a href="{%url 'login'%}"><input id="botin" type="submit" value="Iniciar sesión"></a>
+		
+		{%endif%}
+
+	</nav>
+
+
+	{% block content %}
+	{% endblock content %}
+	<footer class="pie">
+	<h3>Desarrollado con fines meramente educativos</h3>
+	<p>Propiedad de sus desarrolladores (Tanto programadores como diseñadores) Agosto 2016</p>
+</footer>
+</body>
+</html>
+

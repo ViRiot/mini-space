@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tweexter</title>
+	<meta charset= UTF-8>
+	<style type="text/css">
+
+	body{
+		margin:0;
+		padding:0;
+		font-family: sans-serif;
+	}
+	#contenedor{
+		background: green;
+		vertical-align: left;
+		margin-bottom: 25px;
+		margin-right: 45%;
+		box-shadow: 0px 10px 15px rgba(0,0,0,0.7);
+		padding: 1px;
+	}
+
+	#chiquito{
+		background-color: orange;
+		width: 98%;
+		margin: auto;
+	}
+
+	a{
+		text-decoration: none;
+		color: white;
+		margin: 3px 15px;
+	}
+
+	#poke{
+		border-bottom: solid 2px;
+		margin-top: 0px;
+		margin-bottom: 0px; 
+	}
+
+	h1{
+		color:white;
+		margin-left: 20px;
+		margin-bottom: 0px;	
+	}
+
+	p{
+		margin-top: 3px;
+		margin-left: 35px;
+	}
+
+	#line{
+		background-color: green;
+		color: white;
+		margin:0px;
+		padding:0px;
+		box-shadow: 0px 10px 15px rgba(0,0,0,0.7);
+	}
+	footer{
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	#menu{
+		display: inline;
+		color: white;
+		
+	}
+
+	#parr{
+		text-align: center;
+	}
+
+	#fecha{
+		font-family: sans-serif;
+		text-align: right; 
+		font-size: 15px;
+	}
+
+	</style>
+</head>
+<body>
+	<h1 id="line"> <a href="http://localhost:8000/blog/">Twixter</a></h1>
+	<div id="contenedor">
+	  <div id="chiquito">
+		<header>
+				<h2><a href="http://localhost:8000/presentacion/">Mi Perfil</a></h2>
+				<h3>Dándole duro a Django</h3>
+		</header>
+
+		<section>
+			
+			{%block content %}
+			{%endblock content %}	
+		</section>
+		<footer>
+			(c) Propiedad de Twíxter y sus secuaces
+		</footer>
+	  </div>	
+	</div>
+</body>
+</html>

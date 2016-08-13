@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<style>
+	#escala{
+	margin-left: 40px;
+		margin-right: 120px;
+		color: white;
+		border-bottom: solid 2px;
+		border-color: #8E8E8E;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	#botin{
+			margin-left: 340px;
+			background-color:#EED92D;
+			 -webkit-border-radius:4px;
+             -moz-border-radius:4px;
+              border-radius:4px;
+              background:-webkit-linear-gradient(top, #F8E027, withe); /* Chrome 10+ */
+background: -moz-linear-gradient(top, #F8E027, white); /* Firefox 3.6+ */
+background: -ms-linear-gradient(top, #F8E027, white); /* IE10 */
+background: linear-gradient(top, #F8E027, white);
+	}
+
+</style>
+<div id="escala">
+{%if request.user.is_authenticated%}
+	
+<h2>Primero es necesario</h2>
+<a href="{%url 'logout'%}">>>Cerrar Sesión<<</a>
+
+{%else%}
+<form action="." method="post">
+	{%csrf_token%}
+	{{form.as_p}}
+	<input id="botin" type="submit" value="Crear perfil">
+</form>
+</div>
+{%endif%}
+
+{%endblock content%}

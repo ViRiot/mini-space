@@ -1,0 +1,29 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<style>
+	#ven{
+	margin-left: 40px;
+		margin-right: 120px;
+		color: white;
+		border-bottom: solid 2px;
+		border-color: #8E8E8E;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	#botin{
+			margin-left: 150px;
+	}
+
+	a:hover{
+			color:#22B7A1;
+
+		}
+	</style>
+	<div id="ven">	
+<h1>Te vamos a extrañar :c</h1>
+<p>Vuelve a iniciar sesión <a href="{%url 'login'%}">>>Aquí<<</a></p>
+<p>¿No tienes cuenta? <a href="{%url 'alta'%}">¡Regístrate Aquí!</a></p>
+</div>
+{%endblock content%}

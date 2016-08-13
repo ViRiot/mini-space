@@ -1,0 +1,28 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<style>
+	#escala{
+	margin-left: 40px;
+		margin-right: 120px;
+		color: white;
+		border-bottom: solid 2px;
+		border-color: #8E8E8E;
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	#botin{
+			margin-left: 340px;
+	}
+
+</style>
+
+<form id="escala" action="." method="post">
+{%csrf_token%}
+{{form.as_p}}
+<input id="botin" type="submit" value="Publicar">
+
+</form>
+
+{%endblock content%}
